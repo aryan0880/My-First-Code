@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Profile - Aryan Sonawane</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f7;
+      margin: 0;
+    }
+    .profile-card {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: #34495e;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      margin: 10px 0 5px;
+    }
+    .header p {
+      font-size: 16px;
+      color: #bdc3c7;
+    }
+    .section {
+      padding: 25px 30px;
+      border-bottom: 1px solid #eee;
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    .skills span {
+      background-color: #f1f1f1;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 5px;
+      font-size: 14px;
+    }
+    .contact p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
 
+  <div class="profile-card">
+    <div class="header">
+      <img src="https://via.placeholder.com/120" alt="Student Photo">
+      <h1>Aryan Sonawane</h1>
+      <p>Computer Engineering Student | Aspiring Full-Stack Developer</p>
+    </div>
+
+    <div class="section">
+      <h2>About Me</h2>
+      <p>
+        Hello! I'm Aryan Sonawane, a computer science student passionate about coding, software development, and learning new technologies. I enjoy working on web projects and solving algorithmic problems.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <p><strong>B.E Computer Engineering</strong><br>DMCE AIROLI 2028</p>
+    </div>
+
+    <div class="section">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>Python</span>
+        <span>C++</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Contact Information</h2>
+      <div class="contact">
+        <p><strong>Email:</strong> aryan.sonawane094@gmail.com</p>
+        <p><strong>Phone:</strong> +91-7678004824</p>
+        <p><strong>LinkedIn:</strong> linkedin.com/in/aryansonawane</p>
+        <p><strong>GitHub:</strong> github.com/aryan-sonawane</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
