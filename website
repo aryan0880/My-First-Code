@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SafetyNest – Personal Safety App</title>
+  <meta name="description" content="SafetyNest is a personal safety app with SOS alerts, live location sharing, and trusted contacts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d0f12;
+      --card:#12151a;
+      --muted:#9aa4b2;
+      --brand:#e11d48; /* crimson */
+      --brand-2:#ef4444; /* red */
+      --accent:#22d3ee; /* cyan */
+      --ring: 0 0 0 3px rgba(225,29,72,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:#f8fafc; background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1120px, 92%); margin-inline:auto}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:linear-gradient(180deg, rgba(13,15,18,.9), rgba(13,15,18,.6)); border-bottom:1px solid #1f242d;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; gap:.6rem; align-items:center; font-weight:800; letter-spacing:.4px}
+    .logo-mark{width:28px; height:28px; display:grid; place-items:center; border-radius:50%;
+      background: radial-gradient(120% 120% at 30% 20%, var(--brand-2), var(--brand));
+      box-shadow:0 10px 30px rgba(239,68,68,.25);
+    }
+    .logo-mark svg{width:18px; height:18px}
+    .nav a{color:var(--muted); margin-left:20px}
+    .nav a:hover{color:#fff}
+    .btn{display:inline-flex; gap:.5rem; align-items:center; padding:.8rem 1rem; border-radius:12px; font-weight:600;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 10px 30px rgba(239,68,68,.35);
+    }
+    /* Hero */
+    .hero{
+      padding:72px 0 48px; position:relative; overflow:hidden; border-bottom:1px solid #1f242d;
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(239,68,68,.12), transparent 60%),
+                 radial-gradient(900px 500px at -10% 40%, rgba(34,211,238,.08), transparent 60%);
+    }
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .9fr; gap:36px; align-items:center}
+    .eyebrow{color:var(--accent); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
+    h1{margin:.4rem 0 1rem; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15}
+    .lead{color:#d0d6de; font-size:1.05rem; max-width:56ch}
+    .hero-card{background:var(--card); border:1px solid #1f242d; border-radius:18px; padding:22px; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .stat{display:grid; grid-template-columns: max-content 1fr; gap:.5rem 1rem; align-items:center; margin:10px 0}
+    .stat svg{opacity:.9}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:1.6rem; margin:0 0 14px}
+    .muted{color:var(--muted)}
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid #1f242d; border-radius:16px; padding:18px}
+    .card h3{margin:8px 0; font-size:1.05rem}
+    .pill{display:inline-block; font-size:.75rem; color:#fff; background:#0b1118; border:1px solid #1f242d; padding:.3rem .6rem; border-radius:999px}
+
+    .features-list{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
+    .features-list li{background:#0b1118; border:1px solid #1f242d; padding:10px 12px; border-radius:12px}
+
+    /* CTA */
+    .cta{background:linear-gradient(135deg, rgba(239,68,68,.14), rgba(239,68,68,.04)); border-top:1px solid #1f242d; border-bottom:1px solid #1f242d}
+    .cta .box{background:var(--card); border:1px solid #1f242d; border-radius:18px; padding:24px; display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+
+    footer{padding:30px 0; color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns: 1fr}
+      .cards{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 620px){
+      .cards, .features-list{grid-template-columns:1fr}
+      .nav a{margin-left:14px}
+    }
+  </style>
+</head>
+<body>
+  <header aria-label="Site header">
+    <div class="container nav" role="navigation">
+      <a href="#" class="logo" aria-label="SafetyNest Home">
+        <span class="logo-mark" aria-hidden="true">
+          <!-- Shield icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/>
+          </svg>
+        </span>
+        <span>SafetyNest</span>
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Personal Safety • SOS • Location</p>
+          <h1>Feel safer everywhere with instant <span style="color:var(--brand-2)">SOS</span> and live location sharing.</h1>
+          <p class="lead">SafetyNest connects you to trusted contacts, records critical evidence, and alerts nearby help in seconds — even with spotty connectivity.</p>
+          <div style="display:flex; gap:12px; margin-top:18px">
+            <a class="btn" href="#download">Get the app</a>
+            <a class="pill" href="#features">Explore features</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Quick highlights">
+          <div class="stat">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+            <div>
+              <strong>One-tap SOS</strong>
+              <div class="muted">Sends SMS + live location to trusted circle</div>
+            </div>
+          </div>
+          <div class="stat">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            <div>
+              <strong>Auto evidence</strong>
+              <div class="muted">Optional auto audio/video capture</div>
+            </div>
+          </div>
+          <div class="stat">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15A7.97 7.97 0 0020 12 8 8 0 104 12c0 1.1.22 2.15.6 3"/></svg>
+            <div>
+              <strong>Works offline</strong>
+              <div class="muted">Queues alerts when network returns</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="container">
+      <h2 class="section-title">Core Features</h2>
+      <p class="muted">Built for quick response, privacy, and reliability.</p>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <span class="pill">SOS & Alerts</span>
+          <h3>One‑Tap Emergency</h3>
+          <p>Trigger SOS with a tap or voice phrase; notify contacts and authorities with GPS.</p>
+        </article>
+        <article class="card" role="listitem">
+          <span class="pill">Live Share</span>
+          <h3>Real‑Time Location</h3>
+          <p>Share live location until you mark yourself safe; configurable geofences for kids.</p>
+        </article>
+        <article class="card" role="listitem">
+          <span class="pill">Privacy</span>
+          <h3>Secure by Design</h3>
+          <p>End‑to‑end encryption for sensitive data, with granular consent controls.</p>
+        </article>
+      </div>
+
+      <ul class="features-list" style="margin-top:16px">
+        <li>Fake call & flashlight signal</li>
+        <li>Local police & hospital directory</li>
+        <li>Wearable integration (watch, ring)</li>
+        <li>Anonymous incident reporting</li>
+      </ul>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="container">
+      <h2 class="section-title">How it Works</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>1. Set up trusted circle</h3>
+          <p>Add 3–5 emergency contacts; customize alert message and sharing duration.</p>
+        </div>
+        <div class="card">
+          <h3>2. Quick‑access triggers</h3>
+          <p>Use the large SOS button, voice phrase, or press power‑key pattern.</p>
+        </div>
+        <div class="card">
+          <h3>3. Response & guidance</h3>
+          <p>Contacts get your location link; app records evidence and guides you to safe spots.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Download -->
+    <section id="download" class="cta">
+      <div class="container box">
+        <div>
+          <h2 style="margin:0 0 6px">Download SafetyNest</h2>
+          <p class="muted" style="margin:0">Coming soon to Android & iOS. Join the early access list.</p>
+        </div>
+        <a class="btn" href="#" aria-label="Join early access">Join Early Access</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px">
+      <small>© <span id="year"></span> SafetyNest. All rights reserved.</small>
+      <small class="muted">Built with privacy‑first principles.</small>
+    </div>
+  </footer>
+
+  <script>
+    // tiny enhancement: current year for footer (no other JS required)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
