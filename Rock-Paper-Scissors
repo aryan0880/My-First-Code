@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Rock Paper Scissors Game</h1>
+  
+  <div class="choices">
+    <button class="choice" onclick="play('rock')">🪨 Rock</button>
+    <button class="choice" onclick="play('paper')">📄 Paper</button>
+    <button class="choice" onclick="play('scissors')">✂️ Scissors</button>
+  </div>
+
+  <div class="result" id="result">Make your move!</div>
+  <div class="score" id="score">Player: 0 | Computer: 0</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  background: #ade70e;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #390606;
+}
+
+.choices {
+  margin: 20px 0;
+}
+
+.choice {
+  display: inline-flexbox;
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 18px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.choice:hover {
+  background: #45a049;
+}
+
+.result {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #444;
+}
+
+.score {
+  margin-top: 20px;
+  font-size: 20px;
+}
+let playerScore = 0;
+let computerScore = 0;
+
+function play(playerChoice) {
+  const choices = ['rock', 'paper', 'scissors'];
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+  let result = "";
+  if (playerChoice === computerChoice) {
+    result = "It's a Draw! Both chose " + playerChoice;
+  } else if (
+    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'paper' && computerChoice === 'rock') ||
+    (playerChoice === 'scissors' && computerChoice === 'paper')
+  ) {
+    result = "You Win! " + playerChoice + " beats " + computerChoice;
+    playerScore++;
+  } else {
+    result = "You Lose! " + computerChoice + " beats " + playerChoice;
+    computerScore++;
+  }
+
+  document.getElementById("result").innerText = result;
+  document.getElementById("score").innerText =
+    "Player: " + playerScore + " | Computer: " + computerScore;
+}
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
+
